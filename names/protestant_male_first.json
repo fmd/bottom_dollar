@@ -1,4 +1,4 @@
-{ "names" : [
+[
     ["Jonathan", "John"],
     ["Joseph", "Joe"],
     ["Peter", "Pete"],
@@ -13,4 +13,4 @@
     ["Harold", "Harry"],
     ["Nicolas", "Nick"],
     ["Gregory", "Rory", "Greg"]
-] }
+]

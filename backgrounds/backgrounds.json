@@ -1,4 +1,4 @@
-{ "backgrounds" : [
+[
     { "name" : "european",
       "color_range" : ["#eeeeee", "#999999"],
       "naturalization_percent" : 100,
@@ -35,4 +35,4 @@
       "immigration_percent" : 5,
       "has_middle_name" : false,
       "religions" : ["protestant", "muslim"] }
-]}
+]
