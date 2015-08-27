@@ -2,6 +2,22 @@
 
 ## Core game mechanics:
 
+### Character generation
+
+Characters have their family lives simulated from birth. Sometimes the killer might, say, attend a book club with the victims' mothers. They are many possible hobby or relative links. The killer might work as a janitor at the victims' ballet school.
+
+### City generation
+
+The killer might be a cab driver, and only kills people on his cab route. Catching them requires knowledge of the city and its layout.
+
+### Other
+
+So what if the killer did not know anyone in the victims' families, didn't know the victims themselves had not killed any of their own family, and had no  pattern in location?
+
+The killer could be a Patrick Bateman type, finding and killing people who even mildly annoyed him. You'd have to analyse the weapons used, try and find out if they can be pinpointed to weapon stores. Where is he killing the victims? In their own homes? Is he killing them at an unknown location and dumping the bodies elsewhere? A serial killer is not a serial killer until there are 3 bodies. What state are the bodies in? Are the murders of a sexual nature? If so, does running DNA evidence against the sex offenders register turn anything up?
+
+The murders should never be too easy to solve. Ask archiving to go through cold cases and look for old crimes that fit the same pattern.
+
 ### Paperwork
 
 Doing desk work is a large part of the game. Desk work can include:
