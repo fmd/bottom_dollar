@@ -1,19 +1,21 @@
 package main
 
 import (
-    "fmt"
+    "time"
 )
 
 type Person struct {
-    city *City
+    World *World
+    DateOfBirth time.Time
 }
 
-func NewPerson() *Person {
+func NewPerson(w *World) *Person {
     p := &Person{}
+    p.World = w
     p.Birth()
     return p
 }
 
 func (p *Person) Birth() {
-    fmt.Println("Person is born.")
+    p.DateOfBirth = p.World.Date
 }

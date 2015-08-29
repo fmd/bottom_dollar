@@ -6,13 +6,11 @@ import (
 )
 
 var world *World
-var city *City
 
 func main() {
     world = NewWorld(time.Date(1870, time.January, 1, 0, 0, 0, 0, time.UTC))
-    city = NewCity()
+    world.AgeByDaysUntil(time.Date(1971, time.January, 1, 0, 0, 0, 0, time.UTC))
 
-    fmt.Println(world, city)
     wait()
 }
 
