@@ -52,3 +52,9 @@ func BackgroundChoiceFromList(keyChoices []string) (BackgroundChoice, error) {
 	c := rand.Intn(len(keyChoices))
 	return BackgroundChoiceFromKey(keyChoices[c])
 }
+
+func RandomBackgroundChoice() BackgroundChoice {
+	backgrounds := AllBackgroundChoices()
+	c := rand.Intn(len(backgrounds))
+	return backgrounds[c]
+}

@@ -37,3 +37,16 @@ func (g Gender) NameDirectory() string {
     }
     return "female"
 }
+
+func RandomGender() Gender {
+    choice := rand.Intn(100)
+    if choice < 50 {
+        return FEMALE
+    }
+
+    if choice < 99 {
+        return MALE
+    }
+
+    return NONBINARY
+}

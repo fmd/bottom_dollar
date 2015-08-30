@@ -10,18 +10,26 @@ type Person struct {
 	Background *Background
 }
 
-func NewPerson(backgroundKey string) *Person {
+func NewPersonFromBackgroundKey(backgroundKey string) *Person {
 	c, err := BackgroundChoiceFromKey(backgroundKey)
 	if err != nil {
 		panic(err)
 	}
 
-	p := &Person{}
-	p.Gender = FEMALE
-	p.Background = NewBackgroundFromChoice(c)
-    p.Name = NameFromBackgroundAndGender(p.Gender, p.Background)
+	return NewPersonFromBackgroundChoice(c)
+}
 
-	return p
+func NewPersonFromBackgroundChoice(choice BackgroundChoice) *Person {
+    b := NewBackgroundFromChoice(choice)
+    return NewPersonFromBackground(b)
+}
+
+func NewPersonFromBackground(b *Background) *Person {
+    p := &Person{}
+    p.Gender = RandomGender()
+    p.Background = b
+    p.Name = NameFromBackgroundAndGender(p.Gender, p.Background)
+    return p
 }
 
 func (p *Person) Describe() {
