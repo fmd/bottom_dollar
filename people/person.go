@@ -1,22 +1,22 @@
 package people
 
 type Person struct {
-    Name *Name
-    Gender Gender
-    Background *Background
+	Name       *Name
+	Gender     Gender
+	Background *Background
 }
 
 func NewPerson() *Person {
-    c, err := BackgroundChoiceFromKey("european")
-    if err != nil {
-        panic(err)
-    }
+	c, err := BackgroundChoiceFromKey("european")
+	if err != nil {
+		panic(err)
+	}
 
-    p := &Person{}
-    p.Gender = MALE
-    p.Background = NewBackgroundFromChoice(c)
+	p := &Person{}
+	p.Gender = MALE
+	p.Background = NewBackgroundFromChoice(c)
 
-    return p
+	return p
 }
 
 func (p *Person) Describe() {
