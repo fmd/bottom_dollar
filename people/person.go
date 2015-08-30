@@ -1,8 +1,4 @@
-package main
-
-import (
-    "fmt"
-)
+package people
 
 type Person struct {
     Name *Name
