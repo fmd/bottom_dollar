@@ -1,7 +1,6 @@
 package main
 
 import (
-    "fmt"
     "time"
     "math/rand"
 )
@@ -22,9 +21,7 @@ func NewReligionFromChoice(choice ReligionChoice) *Religion {
     r.Plural = choice.Plural
 
     chance := rand.Intn(99) + 1
-    fmt.Println("RChance",chance)
-
-    if (rand.Intn(99) + 1 < choice.ReligiousPercent) {
+    if (chance < choice.ReligiousPercent) {
         r.Religious = true
     }
 

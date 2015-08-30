@@ -1,5 +1,9 @@
 package main
 
+import (
+    "fmt"
+)
+
 type Person struct {
     Name *Name
     Gender Gender
@@ -20,5 +24,5 @@ func NewPerson() *Person {
 }
 
 func (p *Person) Describe() {
-
+    fmt.Println(p.Background)
 }
