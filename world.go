@@ -10,7 +10,7 @@ const STARTING_POPULATION int = 30000
 const MAX_RANDOM_STARTING_POPULATION int = 5000
 
 func init() {
-    rand.Seed( time.Now().UnixNano())
+    rand.Seed(time.Now().UnixNano())
 }
 
 type World struct {
@@ -24,10 +24,13 @@ func NewWorld(date time.Time) *World {
     w.Date = date
     w.Ticker = time.NewTicker(time.Second * 1)
     w.Paused = true
-
-    w.generateInitialPopulation()
     go w.advanceTicker()
     return w
+}
+
+func (w *World) Generate() {
+    w.generateInitialPopulation()
+    w.ageByDaysUntil(time.Date(1971, time.January, 1, 0, 0, 0, 0, time.UTC))
 }
 
 func (w *World) advanceTicker() {
@@ -42,9 +45,12 @@ func (w *World) generateInitialPopulation() {
     population := STARTING_POPULATION
     plusRandom := rand.Intn(MAX_RANDOM_STARTING_POPULATION)
 
+    var person *Person
     for i := 0; i < population + plusRandom; i++ {
-        NewPerson(w)
+        person = NewPerson()
+        person.RandomizeAge()
     }
+
     fmt.Println(population + plusRandom, "people live in the city.")
 }
 
@@ -56,7 +62,7 @@ func (w *World) tick(hours time.Duration, minutes time.Duration, seconds time.Du
     w.Date = w.Date.Add(time.Second * seconds + time.Minute * minutes + time.Hour * hours)
 }
 
-func (w *World) AgeByDaysUntil(date time.Time) {
+func (w *World) ageByDaysUntil(date time.Time) {
     for w.Date.Before(date) {
         w.age(0, 0, 1)
     }
