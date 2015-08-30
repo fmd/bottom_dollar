@@ -18,18 +18,18 @@ func NameFromBackgroundAndGender(g Gender, b *Background) *Name {
 }
 
 func lastName(genderDir string, b *Background) NameSet {
-    return NameSetFromList(NameList("last", genderDir, b.Name))
+    return NameSetFromList(NameList("last", genderDir, b))
 }
 
 func middleName(genderDir string, b *Background) NameSet {
     if !b.HasMiddleName {
         return NameSet{""}
     }
-    return NameSetFromList(NameList("middle", genderDir, b.Name))
+    return NameSetFromList(NameList("middle", genderDir, b))
 }
 
 func firstName(genderDir string, b *Background) NameSet {
-    return NameSetFromList(NameList("first", genderDir, b.Name))
+    return NameSetFromList(NameList("first", genderDir, b))
 }
 
 func (n *Name) First() string {

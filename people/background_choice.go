@@ -19,6 +19,8 @@ type BackgroundChoice struct {
 	NaturalizationPercent int      `json:"naturalization_percent"`
 	ImmigrationPercent    int      `json:"immigration_percent"`
 	HasMiddleName         bool     `json:"has_middle_name"`
+	AllowLastNameChange   bool     `json:"allow_last_name_change"`
+	NameChoices           []string `json:"name_choices"`
 	Religions             []string `json:"religions"`
 }
 
@@ -44,7 +46,6 @@ func BackgroundChoiceFromKey(key string) (BackgroundChoice, error) {
 			return choices[j], nil
 		}
 	}
-
 	return BackgroundChoice{}, errors.New(fmt.Sprintf("Could not find background: %s", key))
 }
 

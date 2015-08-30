@@ -10,17 +10,42 @@ func init() {
 }
 
 type Background struct {
-	Name          string
-	Color         string
-	Immigrated    bool
-	Naturalized   bool
-	HasMiddleName bool
-	Religion      *Religion
+	Name                string
+	Color               string
+	Immigrated          bool
+	Naturalized         bool
+	HasMiddleName       bool
+	Religion            *Religion
+	NameChoice          string
+	AllowLastNameChange bool
+}
+
+func (b *Background) ChangeLastName() bool {
+	return b.Religion.Religious && b.Religion.ChangesLastName && b.AllowLastNameChange
+}
+
+func (b *Background) ChangeFirstName() bool {
+	return b.Religion.Religious && b.Religion.ChangesName
+}
+
+func (b *Background) ListChoiceForNameType(t string) string {
+    if t == "last" {
+        if b.ChangeLastName() {
+            return b.Religion.Name
+        }
+    } else {
+        if b.ChangeFirstName() {
+            return b.Religion.Name
+        }
+    }
+
+    return b.NameChoice
 }
 
 func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b := &Background{}
 	b.Name = choice.Name
+	b.AllowLastNameChange = choice.AllowLastNameChange
 	b.Color = choice.ColorRange[0] //TODO
 
 	chance := rand.Intn(100)
@@ -32,6 +57,9 @@ func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	if chance < choice.NaturalizationPercent {
 		b.Naturalized = true
 	}
+
+	index := rand.Intn(len(choice.NameChoices))
+	b.NameChoice = choice.NameChoices[index]
 
 	b.HasMiddleName = choice.HasMiddleName
 	religionChoice, err := ReligionChoiceFromList(choice.Religions)

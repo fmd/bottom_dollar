@@ -10,15 +10,19 @@ func init() {
 }
 
 type Religion struct {
-	Name      string
-	Plural    string
-	Religious bool
+	Name            string
+	Plural          string
+	ChangesName     bool
+	ChangesLastName bool
+	Religious       bool
 }
 
 func NewReligionFromChoice(choice ReligionChoice) *Religion {
 	r := &Religion{}
 	r.Name = choice.Name
 	r.Plural = choice.Plural
+	r.ChangesName = choice.ChangesName
+	r.ChangesLastName = choice.ChangesLastName
 
 	chance := rand.Intn(100)
 	if chance < choice.ReligiousPercent {

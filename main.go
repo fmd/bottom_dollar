@@ -11,6 +11,8 @@ func init() {
 }
 
 func main() {
-	p := people.NewPersonFromBackgroundChoice(people.RandomBackgroundChoice())
-	p.Describe()
+    for i := 0; i < 2000; i++ {
+	   p := people.NewPersonFromBackgroundChoice(people.RandomBackgroundChoice())
+       p.Describe()
+    }
 }

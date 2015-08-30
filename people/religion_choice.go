@@ -16,6 +16,8 @@ func init() {
 type ReligionChoice struct {
 	Name             string `json:"name"`
 	Plural           string `json:"plural"`
+	ChangesName      bool   `json:"changes_name"`
+	ChangesLastName  bool   `json:"changes_last_name"`
 	ReligiousPercent int    `json:"religious_percent"`
 }
 

@@ -19,14 +19,16 @@ func NameSetFromList(list []NameSet) NameSet {
     return list[index]
 }
 
-func NameList(t string, g string, b string) []NameSet {
+func NameList(t string, g string, b *Background) []NameSet {
+    listChoice := b.ListChoiceForNameType(t)
+
     var content []byte
     var err error
 
     if t == "last" {
-        content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s.json", t, b))
+        content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s.json", t, listChoice))
     } else {
-        content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s/%s.json", t, g, b))
+        content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s/%s.json", t, g, listChoice))
     }
 
     if err != nil {
