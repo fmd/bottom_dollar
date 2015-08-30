@@ -1,0 +1,20 @@
+[
+    { "name" : "muslim",
+      "plural" : "muslims",
+      "religious_percent" : 80 },
+    { "name" : "buddhist",
+      "plural" : "buddhists",
+      "religious_percent" : 40 },
+    { "name" : "catholic",
+      "plural" : "catholics",
+      "religious_percent" : 50 },
+    { "name" : "protestant",
+      "plural" : "protestants",
+      "religious_percent" : 20 },
+    { "name" : "jewish",
+      "plural" : "jews",
+      "religious_percent" : 60 },
+    { "name" : "hindu",
+      "plural" : "hindus",
+      "religious_percent" : 70 }
+]

@@ -1,6 +1,10 @@
 package main
 
+import (
+    "github.com/fmd/bottom_dollar/people"
+)
+
 func main() {
-    p := NewPerson()
+    p := people.NewPerson()
     p.Describe()
 }
