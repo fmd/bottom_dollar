@@ -4,9 +4,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+    "time"
 	"io/ioutil"
 	"math/rand"
 )
+
+func init() {
+    rand.Seed(time.Now().UnixNano())
+}
 
 type ReligionChoice struct {
 	Name             string `json:"name"`
@@ -41,6 +46,6 @@ func ReligionChoiceFromKey(key string) (ReligionChoice, error) {
 }
 
 func ReligionChoiceFromList(keyChoices []string) (ReligionChoice, error) {
-	c := rand.Intn(len(keyChoices) - 1)
+	c := rand.Intn(len(keyChoices))
 	return ReligionChoiceFromKey(keyChoices[c])
 }

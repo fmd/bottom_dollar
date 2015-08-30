@@ -2,14 +2,20 @@ package people
 
 import (
     "fmt"
+    "encoding/json"
     "io/ioutil"
+    "time"
     "math/rand"
 )
+
+func init() {
+    rand.Seed(time.Now().UnixNano())
+}
 
 type NameSet []string
 
 func NameSetFromList(list []NameSet) NameSet {
-    index := rand.Intn(len(list)) - 1
+    index := rand.Intn(len(list))
     return list[index]
 }
 

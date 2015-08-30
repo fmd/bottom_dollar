@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	p := people.NewPerson()
+	p := people.NewPerson("irish")
 	p.Describe()
 }

@@ -10,8 +10,8 @@ type Person struct {
 	Background *Background
 }
 
-func NewPerson() *Person {
-	c, err := BackgroundChoiceFromKey("irish")
+func NewPerson(backgroundKey string) *Person {
+	c, err := BackgroundChoiceFromKey(backgroundKey)
 	if err != nil {
 		panic(err)
 	}
@@ -25,5 +25,5 @@ func NewPerson() *Person {
 }
 
 func (p *Person) Describe() {
-    fmt.Println(p.Name)
+    fmt.Println(p.Name.Full())
 }

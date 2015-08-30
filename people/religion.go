@@ -20,7 +20,7 @@ func NewReligionFromChoice(choice ReligionChoice) *Religion {
 	r.Name = choice.Name
 	r.Plural = choice.Plural
 
-	chance := rand.Intn(99) + 1
+	chance := rand.Intn(100)
 	if chance < choice.ReligiousPercent {
 		r.Religious = true
 	}

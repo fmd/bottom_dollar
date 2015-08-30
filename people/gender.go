@@ -1,11 +1,11 @@
 package people
 
-type Gender int
-
 import (
     "math/rand"
     "time"
 )
+
+type Gender int
 
 func init() {
     rand.Seed(time.Now().UnixNano())
@@ -32,7 +32,7 @@ func (g Gender) NameDirectory() string {
         return "female"
     } else if g == MALE {
         return "male"
-    } else if rand.Intn(99) + 1 < 50 {
+    } else if rand.Intn(100) < 50 {
         return "male"
     }
     return "female"

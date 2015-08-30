@@ -23,13 +23,13 @@ func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b.Name = choice.Name
 	b.Color = choice.ColorRange[0] //TODO
 
-	chance := rand.Intn(99) + 1
+	chance := rand.Intn(100)
 	if chance < choice.ImmigrationPercent {
 		b.Immigrated = true
 	}
 
-	chance = rand.Intn(99) + 1
-	if rand.Intn(99)+1 < choice.NaturalizationPercent {
+	chance = rand.Intn(100)
+	if chance < choice.NaturalizationPercent {
 		b.Naturalized = true
 	}
 
