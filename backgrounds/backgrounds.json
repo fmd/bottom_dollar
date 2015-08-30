@@ -22,7 +22,7 @@
       "naturalization_percent" : 50,
       "immigration_percent" : 30,
       "has_middle_name" : true,
-      "religions" : ["catholic"] },
+      "religions" : ["catholic", "jewish"] },
     { "name" : "russian",
       "color_range" : ["#666666", "#222222"],
       "naturalization_percent" : 80,

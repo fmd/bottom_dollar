@@ -5,17 +5,6 @@ import (
     "math/rand"
 )
 
-type SocioEconomicClass int
-
-const (
-    HOMELESS SocioEconomicClass = iota
-    WORKING
-    LOWER_MIDDLE
-    MIDDLE
-    UPPER_MIDDLE
-    UPPER
-)
-
 func init() {
     rand.Seed(time.Now().UnixNano())
 }
@@ -47,4 +36,8 @@ func getRandomYearsBack() int {
 
 func (p *Person) RandomizeAge() {
     p.DateOfBirth = p.DateOfBirth.AddDate(-getRandomYearsBack(), 0, rand.Intn(365))
+}
+
+func (p *Person) RandomizeClass() {
+    p.Class = RandomSocioEconomicClass()
 }

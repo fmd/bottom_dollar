@@ -49,6 +49,7 @@ func (w *World) generateInitialPopulation() {
     for i := 0; i < population + plusRandom; i++ {
         person = NewPerson()
         person.RandomizeAge()
+        person.RandomizeClass()
     }
 
     fmt.Println(population + plusRandom, "people live in the city.")
