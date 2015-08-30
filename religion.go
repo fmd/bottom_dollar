@@ -1,0 +1,32 @@
+package main
+
+import (
+    "fmt"
+    "time"
+    "math/rand"
+)
+
+func init() {
+    rand.Seed(time.Now().UnixNano())
+}
+
+type Religion struct {
+    Name      string
+    Plural    string
+    Religious bool
+}
+
+func NewReligionFromChoice(choice ReligionChoice) *Religion {
+    r := &Religion{}
+    r.Name = choice.Name
+    r.Plural = choice.Plural
+
+    chance := rand.Intn(99) + 1
+    fmt.Println("RChance",chance)
+
+    if (rand.Intn(99) + 1 < choice.ReligiousPercent) {
+        r.Religious = true
+    }
+
+    return r
+}

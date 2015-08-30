@@ -4,6 +4,8 @@ import (
     "encoding/json"
     "math/rand"
     "io/ioutil"
+    "errors"
+    "fmt"
 )
 
 type BackgroundChoice struct {
@@ -30,19 +32,18 @@ func AllBackgroundChoices() []BackgroundChoice {
     return choices
 }
 
-func BackgroundChoiceFromKey(key string) BackgroundChoice {
+func BackgroundChoiceFromKey(key string) (BackgroundChoice, error) {
     choices := AllBackgroundChoices()
     for j := range choices {
         if key == choices[j].Name {
-            return choices[j]
+            return choices[j], nil
         }
     }
 
-    panic("Could not find background.")
-    return choices[0]
+    return BackgroundChoice{}, errors.New(fmt.Sprintf("Could not find background: %s", key))
 }
 
-func BackgroundChoiceFromList(keyChoices []string) BackgroundChoice {
+func BackgroundChoiceFromList(keyChoices []string) (BackgroundChoice, error) {
     c := rand.Intn(len(keyChoices) - 1)
     return BackgroundChoiceFromKey(keyChoices[c])
 }

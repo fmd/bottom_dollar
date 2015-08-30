@@ -1,6 +1,8 @@
 package main
 
 import (
+    "fmt"
+    "errors"
     "encoding/json"
     "math/rand"
     "io/ioutil"
@@ -27,19 +29,18 @@ func AllReligionChoices() []ReligionChoice {
     return choices
 }
 
-func ReligionChoiceFromKey(key string) ReligionChoice {
+func ReligionChoiceFromKey(key string) (ReligionChoice, error) {
     choices := AllReligionChoices()
     for j := range choices {
         if key == choices[j].Name {
-            return choices[j]
+            return choices[j], nil
         }
     }
 
-    panic("Could not find religion.")
-    return choices[0]
+    return ReligionChoice{}, errors.New(fmt.Sprintf("Could not find religion: %s", key))
 }
 
-func ReligionChoiceFromList(keyChoices []string) ReligionChoice {
+func ReligionChoiceFromList(keyChoices []string) (ReligionChoice, error) {
     c := rand.Intn(len(keyChoices) - 1)
     return ReligionChoiceFromKey(keyChoices[c])
 }

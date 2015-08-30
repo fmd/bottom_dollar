@@ -1,19 +1,24 @@
 package main
 
-import (
-    "fmt"
-)
-
 type Person struct {
     Name *Name
-    Gender string
+    Gender Gender
     Background *Background
 }
 
 func NewPerson() *Person {
-    return &Person{}
+    c, err := BackgroundChoiceFromKey("european")
+    if err != nil {
+        panic(err)
+    }
+
+    p := &Person{}
+    p.Gender = MALE
+    p.Background = NewBackgroundFromChoice(c)
+
+    return p
 }
 
-func (p *Person) Say(message string) {
-    fmt.Println(message)
+func (p *Person) Describe() {
+
 }
