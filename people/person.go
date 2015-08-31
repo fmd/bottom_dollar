@@ -2,12 +2,14 @@ package people
 
 import (
     "fmt"
+    "github.com/fmd/bottom_dollar/professions"
 )
 
 type Person struct {
 	Name       *Name
 	Gender     Gender
 	Background *Background
+    Profession Profession
 }
 
 func NewPersonFromBackgroundKey(backgroundKey string) *Person {
