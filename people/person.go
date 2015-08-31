@@ -9,7 +9,7 @@ type Person struct {
 	Name       *Name
 	Gender     Gender
 	Background *Background
-	Profession Profession
+	Profession professions.Profession
 }
 
 func NewPersonFromBackgroundKey(backgroundKey string) *Person {
@@ -36,7 +36,7 @@ func NewPersonFromBackground(b *Background) *Person {
 
 func (p *Person) Describe() {
 	s := p.Name.Full() + " -> " + p.Gender.String()
-	s = s + ", a " + p.Background.Religion.Status() + " " + p.Background.Class.String() + " "
-	s = s + p.Background.Name + " " + p.Background.Religion.Singular + "."
+	s = s + ", a " + p.Background.Religion.Status() + " " + p.Profession.Class().String() + " "
+	s = s + p.Background.Name + " " + p.Background.Religion.Name + " " + p.Profession.String() + "."
 	fmt.Println(s)
 }

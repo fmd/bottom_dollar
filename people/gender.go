@@ -20,11 +20,13 @@ const (
 func (g Gender) String() string {
 	if g == FEMALE {
 		return "female"
-	} else if g == MALE {
-		return "male"
-	} else {
-		return "non-binary"
 	}
+
+	if g == MALE {
+		return "male"
+	}
+
+	return "non-binary"
 }
 
 func (g Gender) NameDirectory() string {

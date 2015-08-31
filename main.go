@@ -13,7 +13,11 @@ func init() {
 
 func main() {
 	for i := 0; i < 2000; i++ {
-		p := people.NewPersonFromBackgroundChoice(people.RandomBackgroundChoice())
+        b, err := people.BackgroundChoiceFromKey("african")
+        if err != nil {
+            panic(err)
+        }
+		p := people.NewPersonFromBackgroundChoice(b)
 		p.Profession = professions.NewDetective()
 		p.Describe()
 	}

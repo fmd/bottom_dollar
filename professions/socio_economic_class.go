@@ -1,15 +1,6 @@
-package people
-
-import (
-	"math/rand"
-	"time"
-)
+package professions
 
 type SocioEconomicClass int
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 const (
 	POOR SocioEconomicClass = iota
@@ -30,8 +21,4 @@ func (s SocioEconomicClass) String() string {
 		return "upper class"
 	}
 	return "nil"
-}
-
-func RandomSocioEconomicClassForBackground(b *Background) SocioEconomicClass {
-	return WORKING
 }

@@ -10,19 +10,23 @@ func init() {
 }
 
 type Detective struct {
-	Salary int
+	SalaryStore int
 }
 
 func NewDetective() *Detective {
 	d := &Detective{}
-	d.Salary = rand.Intn(10000) + 40000
+	d.SalaryStore = rand.Intn(10000) + 40000
 	return d
 }
 
-func (d *Detective) String() {
+func (d *Detective) String() string {
 	return "detective"
 }
 
-func (d *Detective) Salary() {
-	return d.Salary
+func (d *Detective) Salary() int {
+	return d.SalaryStore
+}
+
+func (d *Detective) Class() SocioEconomicClass {
+    return MIDDLE
 }

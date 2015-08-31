@@ -15,7 +15,7 @@ type Religion struct {
 	Singular                   string
 	ChangesName                bool
 	ChangesLastName            bool
-	ChangesNamesOnNonReligious bool
+	ChangeNamesOnNonReligious  bool
 	Religious                  bool
 }
 
@@ -27,11 +27,11 @@ func (r *Religion) Status() string {
 }
 
 func (r *Religion) ShouldChangeLastName() bool {
-	return (r.Religious || r.ChangesNamesOnNonReligious) && r.ChangesLastName
+	return (r.Religious || r.ChangeNamesOnNonReligious) && r.ChangesLastName
 }
 
 func (r *Religion) ShouldChangeName() bool {
-	return (r.Religious || r.ChangesNamesOnNonReligious) && r.ChangesName
+	return (r.Religious || r.ChangeNamesOnNonReligious) && r.ChangesName
 }
 
 func NewReligionFromChoice(choice ReligionChoice) *Religion {
@@ -40,8 +40,8 @@ func NewReligionFromChoice(choice ReligionChoice) *Religion {
 	r.Plural = choice.Plural
 	r.Singular = choice.Singular
 	r.ChangesName = choice.ChangesName
-	r.ChangesLastName = choice.ChangesLastName
-	r.ChangesNamesOnNonReligious = choice.ChangesNamesOnNonReligious
+	r.ChangesLastName = choice.ChangesLastName)
+	r.ChangeNamesOnNonReligious = choice.ChangeNamesOnNonReligious
 
 	chance := rand.Intn(100)
 	if chance < choice.ReligiousPercent {

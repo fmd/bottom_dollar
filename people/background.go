@@ -16,7 +16,6 @@ type Background struct {
 	Religion            *Religion
 	NameChoice          string
 	AllowLastNameChange bool
-	Class               SocioEconomicClass
 }
 
 func (b *Background) ChangeLastName() bool {
@@ -43,6 +42,14 @@ func (b *Background) ListChoiceForNameType(t string) string {
 
 func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b := &Background{}
+
+    religionChoice, err := ReligionChoiceFromList(choice.Religions)
+    if err != nil {
+        panic(err)
+    }
+
+    b.Religion = NewReligionFromChoice(religionChoice)
+
 	b.Name = choice.Name
 	b.AllowLastNameChange = choice.AllowLastNameChange
 	b.Color = choice.ColorRange[0] //TODO
@@ -51,13 +58,5 @@ func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b.NameChoice = choice.NameChoices[index]
 
 	b.HasMiddleName = choice.HasMiddleName
-	religionChoice, err := ReligionChoiceFromList(choice.Religions)
-	if err != nil {
-		panic(err)
-	}
-
-	b.Religion = NewReligionFromChoice(religionChoice)
-	b.Class = RandomSocioEconomicClassForBackground(b)
-
 	return b
 }
