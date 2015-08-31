@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-    "time"
 	"io/ioutil"
 	"math/rand"
+	"time"
 )
 
 func init() {
-    rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())
 }
 
 type ReligionChoice struct {

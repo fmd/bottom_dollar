@@ -20,10 +20,10 @@ type Religion struct {
 }
 
 func (r *Religion) Status() string {
-    if r.Religious {
-    	return "religious"
-    }
-    return "non-religious"
+	if r.Religious {
+		return "religious"
+	}
+	return "non-religious"
 }
 
 func (r *Religion) ShouldChangeLastName() bool {
