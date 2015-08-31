@@ -34,7 +34,7 @@ func NewPersonFromBackground(b *Background) *Person {
 
 func (p *Person) Describe() {
     s := p.Name.Full() + " -> " + p.Gender.String()
-    s = s + ", a " + p.Background.Religion.Status() + " " + p.Background.Name
-    s = s + " " + p.Background.Religion.Singular + "."
+    s = s + ", a " + p.Background.Religion.Status() + " " + p.Background.Class.String() + " "
+    s = s + p.Background.Name + " " + p.Background.Religion.Singular + "."
     fmt.Println(s)
 }

@@ -14,12 +14,13 @@ func init() {
 }
 
 type ReligionChoice struct {
-	Name             string `json:"name"`
-	Plural           string `json:"plural"`
-	Singular         string `json:"singular"`
-	ChangesName      bool   `json:"changes_name"`
-	ChangesLastName  bool   `json:"changes_last_name"`
-	ReligiousPercent int    `json:"religious_percent"`
+	Name                       string `json:"name"`
+	Plural                     string `json:"plural"`
+	Singular                   string `json:"singular"`
+	ChangesName                bool   `json:"changes_name"`
+	ChangesLastName            bool   `json:"changes_last_name"`
+	ChangesNamesOnNonReligious bool   `json:"changes_names_on_non_religious"`
+	ReligiousPercent           int    `json:"religious_percent"`
 }
 
 func AllReligionChoices() []ReligionChoice {
