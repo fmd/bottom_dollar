@@ -25,7 +25,7 @@ type BackgroundChoice struct {
 }
 
 func AllBackgroundChoices() []BackgroundChoice {
-	content, err := ioutil.ReadFile("backgrounds/backgrounds.json")
+	content, err := ioutil.ReadFile("data/json/backgrounds/backgrounds.json")
 	if err != nil {
 		panic(err)
 	}

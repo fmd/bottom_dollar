@@ -26,9 +26,9 @@ func NameList(t string, g string, b *Background) []NameSet {
 	var err error
 
 	if t == "last" {
-		content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s.json", t, listChoice))
+		content, err = ioutil.ReadFile(fmt.Sprintf("data/json/names/%s/%s.json", t, listChoice))
 	} else {
-		content, err = ioutil.ReadFile(fmt.Sprintf("names/%s/%s/%s.json", t, g, listChoice))
+		content, err = ioutil.ReadFile(fmt.Sprintf("data/json/names/%s/%s/%s.json", t, g, listChoice))
 	}
 
 	if err != nil {

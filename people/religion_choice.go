@@ -25,7 +25,7 @@ type ReligionChoice struct {
 }
 
 func AllReligionChoices() []ReligionChoice {
-	content, err := ioutil.ReadFile("backgrounds/religions.json")
+	content, err := ioutil.ReadFile("data/json/backgrounds/religions.json")
 	if err != nil {
 		panic(err)
 	}
