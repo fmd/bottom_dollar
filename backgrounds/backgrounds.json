@@ -1,7 +1,7 @@
 [
     { "name" : "german",
       "color_range" : ["#777777", "#333333"],
-      "religions" : ["jewish"],
+      "religions" : ["protestant","jewish"],
       "allow_last_name_change" : false,
       "name_choices" : ["german"] },
     { "name" : "italian",
