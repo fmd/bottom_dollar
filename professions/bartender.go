@@ -9,24 +9,24 @@ func init() {
     rand.Seed(time.Now().UnixNano())
 }
 
-type Detective struct {
+type Bartender struct {
     SalaryStore int
 }
 
-func NewDetective() *Detective {
-    d := &Detective{}
+func NewBartender() *Bartender {
+    d := &Bartender{}
     d.SalaryStore = rand.Intn(6000) + 10000
     return d
 }
 
-func (d *Detective) String() string {
+func (d *Bartender) String() string {
     return "bartender"
 }
 
-func (d *Detective) Salary() int {
+func (d *Bartender) Salary() int {
     return d.SalaryStore
 }
 
-func (d *Detective) Class() SocioEconomicClass {
+func (d *Bartender) Class() SocioEconomicClass {
     return WORKING
 }
