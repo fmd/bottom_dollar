@@ -2,13 +2,13 @@ package people
 
 import (
 	"fmt"
-	"time"
-	"math/rand"
 	"github.com/fmd/bottom_dollar/professions"
+	"math/rand"
+	"time"
 )
 
 func init() {
-    rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())
 }
 
 type Person struct {
@@ -19,13 +19,13 @@ type Person struct {
 }
 
 func (p *Person) AssignRandomProfession() {
-    professions := []professions.Profession{&professions.Bartender{},
-                                            &professions.Detective{},
-                                            &professions.Jobless{}}
-    index := rand.Intn(len(professions))
-    chosen := professions[index]
-    if p.Background.Religion.AllowsProfessionKey(chosen.Key()) {
-    	p.Profession = chosen
+	professions := []professions.Profession{&professions.Bartender{},
+		&professions.Detective{},
+		&professions.Jobless{}}
+	index := rand.Intn(len(professions))
+	chosen := professions[index]
+	if p.Background.Religion.AllowsProfessionKey(chosen.Key()) {
+		p.Profession = chosen
 	} else {
 		p.AssignRandomProfession()
 	}

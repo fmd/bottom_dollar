@@ -24,7 +24,7 @@ func (d *Detective) String() string {
 }
 
 func (b *Detective) Key() string {
-    return "detective"
+	return "detective"
 }
 
 func (d *Detective) Salary() int {
@@ -32,5 +32,5 @@ func (d *Detective) Salary() int {
 }
 
 func (d *Detective) Class() SocioEconomicClass {
-    return MIDDLE
+	return MIDDLE
 }

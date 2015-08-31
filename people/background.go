@@ -43,12 +43,12 @@ func (b *Background) ListChoiceForNameType(t string) string {
 func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b := &Background{}
 
-    religionChoice, err := ReligionChoiceFromList(choice.Religions)
-    if err != nil {
-        panic(err)
-    }
+	religionChoice, err := ReligionChoiceFromList(choice.Religions)
+	if err != nil {
+		panic(err)
+	}
 
-    b.Religion = NewReligionFromChoice(religionChoice)
+	b.Religion = NewReligionFromChoice(religionChoice)
 
 	b.Name = choice.Name
 	b.AllowLastNameChange = choice.AllowLastNameChange
