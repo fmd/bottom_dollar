@@ -1,7 +1,8 @@
 package professions
 
 type Profession interface {
-	String() string
+	Key() string
+    String() string
 	Salary() int
     Class() SocioEconomicClass
 }

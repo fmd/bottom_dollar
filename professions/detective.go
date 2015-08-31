@@ -23,6 +23,10 @@ func (d *Detective) String() string {
 	return "detective"
 }
 
+func (b *Detective) Key() string {
+    return "detective"
+}
+
 func (d *Detective) Salary() int {
 	return d.SalaryStore
 }

@@ -11,8 +11,8 @@ func NameFromBackgroundAndGender(g Gender, b *Background) *Name {
 	genderDir := g.NameDirectory()
 
 	n.LastSet = lastName(genderDir, b)
-	n.MiddleSet = middleName(genderDir, b)
 	n.FirstSet = firstName(genderDir, b)
+	n.MiddleSet = middleName(n.FirstSet, genderDir, b)
 
 	return n
 }
@@ -21,11 +21,18 @@ func lastName(genderDir string, b *Background) NameSet {
 	return NameSetFromList(NameList("last", genderDir, b))
 }
 
-func middleName(genderDir string, b *Background) NameSet {
+func middleName(firstSet NameSet, genderDir string, b *Background) NameSet {
 	if !b.HasMiddleName {
 		return NameSet{""}
 	}
-	return NameSetFromList(NameList("middle", genderDir, b))
+
+	choice := NameSetFromList(NameList("first", genderDir, b))
+
+	if choice[0] == firstSet[0] {
+		return middleName(firstSet, genderDir, b)
+	}
+
+	return choice
 }
 
 func firstName(genderDir string, b *Background) NameSet {

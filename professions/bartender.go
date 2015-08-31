@@ -14,19 +14,23 @@ type Bartender struct {
 }
 
 func NewBartender() *Bartender {
-    d := &Bartender{}
-    d.SalaryStore = rand.Intn(6000) + 10000
-    return d
+    b := &Bartender{}
+    b.SalaryStore = rand.Intn(6000) + 10000
+    return b
 }
 
-func (d *Bartender) String() string {
+func (b *Bartender) String() string {
     return "bartender"
 }
 
-func (d *Bartender) Salary() int {
-    return d.SalaryStore
+func (b *Bartender) Key() string {
+    return "bartender"
 }
 
-func (d *Bartender) Class() SocioEconomicClass {
+func (b *Bartender) Salary() int {
+    return b.SalaryStore
+}
+
+func (b *Bartender) Class() SocioEconomicClass {
     return WORKING
 }

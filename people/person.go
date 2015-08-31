@@ -2,14 +2,33 @@ package people
 
 import (
 	"fmt"
+	"time"
+	"math/rand"
 	"github.com/fmd/bottom_dollar/professions"
 )
+
+func init() {
+    rand.Seed(time.Now().UnixNano())
+}
 
 type Person struct {
 	Name       *Name
 	Gender     Gender
 	Background *Background
 	Profession professions.Profession
+}
+
+func (p *Person) AssignRandomProfession() {
+    professions := []professions.Profession{&professions.Bartender{},
+                                            &professions.Detective{},
+                                            &professions.Jobless{}}
+    index := rand.Intn(len(professions))
+    chosen := professions[index]
+    if p.Background.Religion.AllowsProfessionKey(chosen.Key()) {
+    	p.Profession = chosen
+	} else {
+		p.AssignRandomProfession()
+	}
 }
 
 func NewPersonFromBackgroundKey(backgroundKey string) *Person {
@@ -28,9 +47,10 @@ func NewPersonFromBackgroundChoice(choice BackgroundChoice) *Person {
 
 func NewPersonFromBackground(b *Background) *Person {
 	p := &Person{}
-	p.Gender = RandomGender()
 	p.Background = b
+	p.Gender = RandomGender()
 	p.Name = NameFromBackgroundAndGender(p.Gender, p.Background)
+	p.AssignRandomProfession()
 	return p
 }
 

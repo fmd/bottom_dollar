@@ -10,13 +10,14 @@ func init() {
 }
 
 type Religion struct {
-	Name                       string
-	Plural                     string
-	Singular                   string
-	ChangesName                bool
-	ChangesLastName            bool
-	ChangeNamesOnNonReligious  bool
-	Religious                  bool
+	Name                      string
+	Plural                    string
+	Singular                  string
+	ChangesName               bool
+	ChangesLastName           bool
+	ChangeNamesOnNonReligious bool
+	DisallowedProfessionKeys  []string
+	Religious                 bool
 }
 
 func (r *Religion) Status() string {
@@ -36,11 +37,14 @@ func (r *Religion) ShouldChangeName() bool {
 
 func NewReligionFromChoice(choice ReligionChoice) *Religion {
 	r := &Religion{}
+	//TODO: Merge choice?
+
 	r.Name = choice.Name
 	r.Plural = choice.Plural
 	r.Singular = choice.Singular
 	r.ChangesName = choice.ChangesName
-	r.ChangesLastName = choice.ChangesLastName)
+	r.ChangesLastName = choice.ChangesLastName
+	r.DisallowedProfessionKeys = choice.DisallowedProfessionKeys
 	r.ChangeNamesOnNonReligious = choice.ChangeNamesOnNonReligious
 
 	chance := rand.Intn(100)
@@ -49,4 +53,18 @@ func NewReligionFromChoice(choice ReligionChoice) *Religion {
 	}
 
 	return r
+}
+
+func (r *Religion) AllowsProfessionKey(key string) bool {
+	if !r.Religious {
+		return true
+	}
+
+	for i := range r.DisallowedProfessionKeys {
+		if key == r.DisallowedProfessionKeys[i] {
+			return false
+		}
+	}
+
+	return true
 }
