@@ -12,8 +12,6 @@ func init() {
 type Background struct {
 	Name                string
 	Color               string
-	Immigrated          bool
-	Naturalized         bool
 	HasMiddleName       bool
 	Religion            *Religion
 	NameChoice          string
@@ -47,16 +45,6 @@ func NewBackgroundFromChoice(choice BackgroundChoice) *Background {
 	b.Name = choice.Name
 	b.AllowLastNameChange = choice.AllowLastNameChange
 	b.Color = choice.ColorRange[0] //TODO
-
-	chance := rand.Intn(100)
-	if chance < choice.ImmigrationPercent {
-		b.Immigrated = true
-	}
-
-	chance = rand.Intn(100)
-	if chance < choice.NaturalizationPercent {
-		b.Naturalized = true
-	}
 
 	index := rand.Intn(len(choice.NameChoices))
 	b.NameChoice = choice.NameChoices[index]

@@ -1,4 +1,9 @@
 [
+    { "name" : "german",
+      "color_range" : ["#777777", "#333333"],
+      "religions" : ["jewish"],
+      "allow_last_name_change" : false,
+      "name_choices" : ["german"] },
     { "name" : "italian",
       "color_range" : ["#777777", "#333333"],
       "religions" : ["catholic"],
@@ -21,7 +26,7 @@
       "name_choices" : ["indian"] },
     { "name" : "polish",
       "color_range" : ["#666666", "#222222"],
-      "religions" : ["catholic", "jewish"],
+      "religions" : ["catholic"],
       "allow_last_name_change" : false,
       "name_choices" : ["polish"] },
     { "name" : "african",
