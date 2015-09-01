@@ -1,18 +1,16 @@
 package main
 
 import (
-	"github.com/fmd/bottom_dollar/people"
-	"math/rand"
-	"time"
+	"github.com/fmd/bottom_dollar/graphics"
 )
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
-
 func main() {
-	for i := 0; i < 2000; i++ {
-		p := people.NewPersonFromBackgroundChoice(people.RandomBackgroundChoice())
-		p.Describe()
-	}
+    w := graphics.NewWindow()
+    var shouldQuit bool
+    for !shouldQuit {
+        shouldQuit = ProcessOneFrameOfInput()
+        w.ProcessOneFrame()
+    }
+
+    w.Destroy()
 }
