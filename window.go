@@ -1,4 +1,4 @@
-package graphics
+package main
 
 import (
     "github.com/go-gl/gl/v2.1/gl"

@@ -1,13 +1,12 @@
 package main
 
 import (
-	"github.com/fmd/bottom_dollar/graphics"
     "github.com/fmd/bottom_dollar/places"
     "fmt"
 )
 
 func main() {
-    w := graphics.NewWindow()
+    w := NewWindow()
     var shouldQuit bool
 
     MakeBar()
