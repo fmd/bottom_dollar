@@ -52,25 +52,6 @@ func NewWindow() *Window {
     return w
 }
 
-func (w *Window) ProcessOneFrame() {
-    drawgl()
-    sdl.GL_SwapWindow(w.Window)
-}
-
-
-func drawgl() {
-    gl.Clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
-
-    gl.Begin(gl.TRIANGLES)
-    gl.Color3f(1.0, 0.0, 0.0)
-    gl.Vertex2f(0.5, 0.0)
-    gl.Color3f(0.0, 1.0, 0.0)
-    gl.Vertex2f(-0.5, -0.5)
-    gl.Color3f(0.0, 0.0, 1.0)
-    gl.Vertex2f(-0.5, 0.5)
-    gl.End()
-}
-
 func (w *Window) Destroy() {
     sdl.GL_DeleteContext(w.Context)
     w.Window.Destroy()
