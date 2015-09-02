@@ -1,7 +1,7 @@
 package main
 
 import (
-    "github.com/fmd/bottom_dollar/engine"
+    "github.com/fmd/bronson"
     "github.com/fmd/bottom_dollar/game"
     "github.com/veandco/go-sdl2/sdl"
     "fmt"
