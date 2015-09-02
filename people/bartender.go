@@ -1,4 +1,4 @@
-package professions
+package people
 
 import (
 	"math/rand"

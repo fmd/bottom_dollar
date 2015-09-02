@@ -2,7 +2,6 @@ package people
 
 import (
 	"fmt"
-	"github.com/fmd/bottom_dollar/professions"
 	"math/rand"
 	"time"
 )
@@ -15,13 +14,14 @@ type Person struct {
 	Name       *Name
 	Gender     Gender
 	Background *Background
-	Profession professions.Profession
+	Profession Profession
 }
 
 func (p *Person) AssignRandomProfession() {
-	professions := []professions.Profession{&professions.Bartender{},
-		&professions.Detective{},
-		&professions.Jobless{}}
+	professions := []Profession{&Bartender{},
+								&Detective{},
+								&Jobless{}}
+
 	index := rand.Intn(len(professions))
 	chosen := professions[index]
 	if p.Background.Religion.AllowsProfessionKey(chosen.Key()) {

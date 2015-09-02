@@ -1,4 +1,4 @@
-package professions
+package people
 
 type SocioEconomicClass int
 

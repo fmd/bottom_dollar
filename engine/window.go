@@ -1,4 +1,4 @@
-package main
+package engine
 
 import (
     "github.com/go-gl/gl/v2.1/gl"
@@ -13,13 +13,19 @@ type Window struct {
     Context sdl.GLContext
 }
 
-func NewWindow() *Window {
+type WindowOpts struct {
+    Title string
+    Width int
+    Height int
+}
+
+func NewWindow(opts WindowOpts) *Window {
     var err error
 
     w := &Window{
-        Title: "Bottom Dollar",
-        Width: 800,
-        Height: 600,
+        Title: opts.Title,
+        Width: opts.Width,
+        Height: opts.Height,
     }
 
     if err = sdl.Init(sdl.INIT_EVERYTHING); err != nil {
@@ -50,6 +56,14 @@ func NewWindow() *Window {
     gl.Viewport(0, 0, int32(w.Width), int32(w.Height))
 
     return w
+}
+
+func (w *Window) Swap() {
+    sdl.GL_SwapWindow(w.Window)
+}
+
+func (w *Window) Clear() {
+    gl.Clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
 }
 
 func (w *Window) Destroy() {

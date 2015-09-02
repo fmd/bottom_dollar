@@ -1,4 +1,4 @@
-package places
+package game
 
 type Tile int
 

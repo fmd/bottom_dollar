@@ -1,18 +1,17 @@
-package graphics
+package game
 
 import (
     "github.com/go-gl/gl/v2.1/gl"
-    "github.com/fmd/bottom_dollar/places"
-    "github.com/fmd/bottom_dollar/graphics"
+    "github.com/fmd/bottom_dollar/engine"
 )
 
 type World struct {
-    Place *places.Place
+    Place *Place
 }
 
 func NewWorld() *World {
     w := &World{}
-    graphics.Renderables = append(graphics.Renderables, w)
+    engine.AddToRenderList(w)
     return w
 }
 
