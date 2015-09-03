@@ -10,13 +10,13 @@ import (
 var shouldQuit bool
 
 func main() {
-    e := engine.NewEngine(engine.WindowOpts{Title: "Bottom Dollar", Width: 800, Height: 600})
+    e := bronson.New(bronson.WindowOpts{Title: "Bottom Dollar", Width: 800, Height: 600})
     w := game.NewWorld()
     fmt.Println(w)
     mainLoop(e)
 }
 
-func mainLoop(e *engine.Engine) {
+func mainLoop(e *bronson.Bronson) {
     shouldQuit = false
     for !shouldQuit {
         handleInput(e.ReceiveEvents())
@@ -24,7 +24,7 @@ func mainLoop(e *engine.Engine) {
     }
 }
 
-func handleInput(b engine.EventBuffer) {
+func handleInput(b bronson.EventBuffer) {
     for _, event := range b {
         switch t := event.(type) {
             case *sdl.QuitEvent:

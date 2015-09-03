@@ -1,27 +1,22 @@
 package game
 
 import (
-    "github.com/go-gl/gl/v2.1/gl"
-    "github.com/fmd/bottom_dollar/engine"
+    "github.com/fmd/bronson"
 )
 
 type World struct {
     Place *Place
+    Geometry *bronson.Geometry
 }
 
 func NewWorld() *World {
     w := &World{}
-    engine.AddToRenderList(w)
-    return w
-}
+    opts := bronson.GeometryOpts{
+        Width: 0.5,
+        Height: 0.5,
+    }
 
-func (w *World) Render() {
-    gl.Begin(gl.TRIANGLES)
-    gl.Color3f(1.0, 0.0, 0.0)
-    gl.Vertex2f(0.5, 0.0)
-    gl.Color3f(0.0, 1.0, 0.0)
-    gl.Vertex2f(-0.5, -0.5)
-    gl.Color3f(0.0, 0.0, 1.0)
-    gl.Vertex2f(-0.5, 0.5)
-    gl.End()
+    g := bronson.NewGeometry(opts)
+    w.Geometry = g
+    return w
 }
