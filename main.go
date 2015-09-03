@@ -19,19 +19,22 @@ func main() {
 func mainLoop(e *bronson.Bronson) {
     shouldQuit = false
     for !shouldQuit {
-        handleInput(e.ReceiveEvents())
+        handleInput(e)
         e.ProcessOneFrame()
     }
 }
 
-func handleInput(b bronson.EventBuffer) {
-    for _, event := range b {
-        switch t := event.(type) {
+func handleInput(b *bronson.Bronson) {
+    for _, event := range b.ReceiveEvents() {
+        switch /*t := */ event.(type) {
             case *sdl.QuitEvent:
                 shouldQuit = true
+                b.Cleanup()
+                break
             case *sdl.MouseMotionEvent:
-                fmt.Printf("[%d ms] MouseMotion\tid:%d\tx:%d\ty:%d\txrel:%d\tyrel:%d\n",
-                           t.Timestamp, t.Which, t.X, t.Y, t.XRel, t.YRel)
+                break
+                //fmt.Printf("[%d ms] MouseMotion\tid:%d\tx:%d\ty:%d\txrel:%d\tyrel:%d\n",
+                //           t.Timestamp, t.Which, t.X, t.Y, t.XRel, t.YRel)
         }
     }
 }
